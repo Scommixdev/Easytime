@@ -1,8 +1,8 @@
 package com.svimtech.easytime;
 
-import com.svimtech.fragments.EasyProjectTask;
+import com.svimtech.fragments.EasyProject;
 import com.svimtech.fragments.EasyProjectTimes;
-import com.svimtech.fragments.Easyproject;
+import com.svimtech.fragments.EasyprojectTasks;
 import com.svimtech.fragments.EasytimeLog;
 
 import android.support.v4.app.Fragment;
@@ -20,11 +20,12 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
  
         switch (index) {
         case 0:
-            // Top Rated fragment activity
-            return new Easyproject();
-        case 1:
             // Games fragment activity
-            return new EasyProjectTask();
+            return new EasyProject();
+    
+        case 1:
+        
+            return new EasyprojectTasks();
         case 2:
             // Movies fragment activity
             return new EasyProjectTimes();

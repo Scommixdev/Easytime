@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-public class EasyProjectTask extends Fragment {
+public class EasyProject extends Fragment {
 	
 	View rootView;
 	ListView tasklistview;

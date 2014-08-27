@@ -19,7 +19,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-public class Easyproject extends Fragment {
+public class EasyprojectTasks extends Fragment {
 	
 	View rootView;
 	
@@ -35,8 +35,8 @@ public class Easyproject extends Fragment {
 		spinner=(ListView)rootView.findViewById(R.id.projectitems);
 		data=new ArrayList<String>();
 		
-		data.add("Project 1");
-		data.add("Project 2");
+		data.add("Task 1");
+		data.add("Task 2");
 	
 		adapter=new EasyProjectTaskAdapter(getActivity(), data);
 		spinner.setAdapter(adapter);

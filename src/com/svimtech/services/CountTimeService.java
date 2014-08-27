@@ -27,6 +27,7 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 public class CountTimeService extends Service{
 
@@ -49,6 +50,7 @@ public class CountTimeService extends Service{
 	private PendingIntent pendingIntent;
 	private Intent intent;
 	private NotificationCompat.Builder builder;
+	private String delete;
 	public static final String ACTION_STOP="com.svimtech.services.ACTION_STOP";
 	public static final String ACTION_START="com.svimtech.services.ACTION_START";
 	
@@ -76,11 +78,12 @@ public class CountTimeService extends Service{
 		    if (intent != null) {
 		        action = intent.getAction();     
 		        
-		        project=intent.getStringExtra("PROJECT");
-		        position=intent.getIntExtra("ID", 0);
-		        
+		     
 		            if (action.equals(ACTION_START)) 
 		            {
+		            	   project=intent.getStringExtra("PROJECT");
+		   		        position=intent.getIntExtra("ID", 0);
+		   		        delete=intent.getStringExtra("DELETE");
 		            	 startTime = SystemClock.uptimeMillis();
 		            	// createNotification("Starting...",project,id);
 		            	 Notification("0:00",project,id);
@@ -88,7 +91,10 @@ public class CountTimeService extends Service{
 		            }
 		           else if(action.equals(ACTION_STOP)) 
 		           {
-		                stopPlay(id);
+		        	
+				        position=intent.getIntExtra("ID", 0);
+				        delete=intent.getStringExtra("DELETE");
+		                stopPlay(id,delete,position);
 		            }
 		        
 		    }
@@ -97,12 +103,19 @@ public class CountTimeService extends Service{
 		return Service.START_FLAG_REDELIVERY;
 	}
 
-	 private void stopPlay(int id) {
+	 private void stopPlay(int id, String project2, int position2) {
 		// TODO Auto-generated method stub
-			mNotifiManager.cancel(id);
-			shouldrun=false;
-			stopForeground(true);
-			stopSelf();
+		 if(project.equals(project2))
+		 {
+				mNotifiManager.cancel(id);
+				shouldrun=false;
+				stopForeground(true);
+				stopSelf();
+		 }
+		 else{
+			 Toast.makeText(this, "Not Applicable!", Toast.LENGTH_SHORT).show();
+		 }
+		
 	}
 
 	
@@ -153,8 +166,8 @@ public class CountTimeService extends Service{
 		 
 		    	pendingIntent = null;
 			      intent = null;
-		    	 intent = new Intent(ACTION_STOP);  
-		    	 intent.putExtra("PROJECT",project);
+		    	 intent = new Intent(this,MainActivity.class);  
+		    	
 		    	 
 		    	    pendingIntent = PendingIntent.getService(getApplicationContext(),
 		    	            0, intent,
@@ -173,7 +186,7 @@ public class CountTimeService extends Service{
 		                // Set Text
 		                .setContentText(string)
 		                // Add an Action Button below Notification
-		                .addAction(R.drawable.ic_launcher, "Stop", pendingIntent)
+		                //.addAction(R.drawable.ic_launcher, "Stop", pendingIntent)
 		                // Set PendingIntent into Notification
 		                .setContentIntent(pendingIntent)
 		                // Dismiss Notification

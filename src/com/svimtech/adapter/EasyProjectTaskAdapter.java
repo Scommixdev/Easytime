@@ -77,8 +77,9 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 					{
 						    Intent i=new Intent();
 					        i.setAction("com.svimtech.services.ACTION_STOP");
-					        i.putExtra("PROJECT", data.get(position));
+					      
 					        i.putExtra("ID", position);
+					        i.putExtra("DELETE", data.get(position));
 					        activity.startService(i);
 					}
 					else
