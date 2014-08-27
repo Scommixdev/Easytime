@@ -6,11 +6,16 @@ import com.svimtech.easytime.R;
 import com.svimtech.easytime.R.id;
 import com.svimtech.easytime.R.layout;
 import com.svimtech.services.CountTimeService;
+import com.svimtech.services.CountTimeService.MyLocalBinder;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +32,8 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 	FragmentActivity activity;
 	
 	ArrayList<String> data;
+	 CountTimeService myService;
+	    boolean isBound = false;
 	
 	public EasyProjectTaskAdapter(FragmentActivity activity, ArrayList<String> data) {
 		// TODO Auto-generated constructor stub
@@ -56,7 +63,7 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		
-		ViewHolder holder;
+		final ViewHolder holder;
 		
 		if(convertView==null)
 		{
@@ -81,6 +88,7 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 					        i.putExtra("ID", position);
 					        i.putExtra("DELETE", data.get(position));
 					        activity.startService(i);
+					        activity.bindService(i, myConnection, Context.BIND_AUTO_CREATE);
 					}
 					else
 					{
@@ -123,7 +131,15 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 		}
 		
 		holder.tv.setText(data.get(position));
-		holder.texttime.setText("");
+		new Handler().postDelayed(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				holder.texttime.setText(myService.getTime());
+			}
+		}, 1000);
+
 		
 		
 		return convertView;
@@ -145,5 +161,20 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 	    }
 	    return false;
 	}
+	
+	private ServiceConnection myConnection = new ServiceConnection() {
+
+	    public void onServiceConnected(ComponentName className,
+	            IBinder service) {
+	        MyLocalBinder binder = (MyLocalBinder) service;
+	        myService = binder.getService();
+	        isBound = true;
+	    }
+	    
+	    public void onServiceDisconnected(ComponentName arg0) {
+	        isBound = false;
+	    }
+	    
+	   };
 	
 }

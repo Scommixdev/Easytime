@@ -22,6 +22,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
@@ -39,7 +40,7 @@ public class CountTimeService extends Service{
 	//	private RemoteViews layout;
 	 private Handler myHandler = new Handler();
 	protected String time;
-	
+	private final IBinder myBinder = new MyLocalBinder();
 	
 	private NotificationManager mNotifiManager;
 	protected boolean shouldrun=true;
@@ -56,10 +57,18 @@ public class CountTimeService extends Service{
 	
 	
 	
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
-		return null;
+		return myBinder;
 	}
 	
 	@Override
@@ -68,6 +77,8 @@ public class CountTimeService extends Service{
         mNotifiManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         super.onCreate();
 	}
+	
+	
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
@@ -182,7 +193,7 @@ public class CountTimeService extends Service{
 		                // Set Ticker Message
 		                .setTicker("Starting Timer"+string)
 		                // Set Title
-		                .setContentTitle("Started Timer for "+project2)
+		                .setContentTitle("Timer for "+project2)
 		                // Set Text
 		                .setContentText(string)
 		                // Add an Action Button below Notification
@@ -200,8 +211,13 @@ public class CountTimeService extends Service{
 		    }
 		 
 		 
-		  
+		    public class MyLocalBinder extends Binder {
+		        public CountTimeService getService() {
+		        	
+		        
+		            return CountTimeService.this;
+		        }
 		
-
+		    }
 
 }
