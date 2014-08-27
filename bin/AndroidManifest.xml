@@ -35,6 +35,11 @@
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
         </service>
+        
+        
+        <activity 
+            android:name="com.svimtech.easytime.TaskActivity"
+            ></activity>
     </application>
 
 </manifest>

@@ -32,8 +32,7 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 	FragmentActivity activity;
 	
 	ArrayList<String> data;
-	 CountTimeService myService;
-	    boolean isBound = false;
+
 	
 	public EasyProjectTaskAdapter(FragmentActivity activity, ArrayList<String> data) {
 		// TODO Auto-generated constructor stub
@@ -72,7 +71,7 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 			convertView=inflater.inflate(R.layout.itemspinner, parent,false);
 			holder.iv=(ImageView)convertView.findViewById(R.id.iv);
 			holder.tv=(TextView)convertView.findViewById(R.id.tv);
-			holder.texttime=(TextView)convertView.findViewById(R.id.texttime);
+
 			
 			holder.stop=(Button)convertView.findViewById(R.id.stopit);
 			holder.stop.setOnClickListener(new OnClickListener() {
@@ -88,7 +87,7 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 					        i.putExtra("ID", position);
 					        i.putExtra("DELETE", data.get(position));
 					        activity.startService(i);
-					        activity.bindService(i, myConnection, Context.BIND_AUTO_CREATE);
+					       
 					}
 					else
 					{
@@ -131,14 +130,7 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 		}
 		
 		holder.tv.setText(data.get(position));
-		new Handler().postDelayed(new Runnable() {
-			
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				holder.texttime.setText(myService.getTime());
-			}
-		}, 1000);
+	
 
 		
 		
@@ -148,7 +140,7 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 	
 	
 	class ViewHolder{
-		TextView tv,texttime;
+		TextView tv;
 		ImageView iv;
 		Button start,stop;
 	}
@@ -162,19 +154,6 @@ public class EasyProjectTaskAdapter extends BaseAdapter
 	    return false;
 	}
 	
-	private ServiceConnection myConnection = new ServiceConnection() {
-
-	    public void onServiceConnected(ComponentName className,
-	            IBinder service) {
-	        MyLocalBinder binder = (MyLocalBinder) service;
-	        myService = binder.getService();
-	        isBound = true;
-	    }
-	    
-	    public void onServiceDisconnected(ComponentName arg0) {
-	        isBound = false;
-	    }
-	    
-	   };
+	
 	
 }
