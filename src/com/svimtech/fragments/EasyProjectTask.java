@@ -5,7 +5,7 @@ package com.svimtech.fragments;
 import java.util.ArrayList;
 
 import com.svimtech.adapter.EasyProjectTimeAdapter;
-import com.svimtech.adapter.EasyProjectAdapter;
+import com.svimtech.adapter.EasyProjectTaskAdapter;
 import com.svimtech.easytime.R;
 import com.svimtech.modal.TaskItem;
 

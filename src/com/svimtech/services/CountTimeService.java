@@ -116,8 +116,8 @@ public class CountTimeService extends Service{
 		   int seconds = (int) (finalTime / 1000);
 		   int minutes = seconds / 60;
 		   seconds = seconds % 60;
-		   int hours=minutes*60;
-		   System.out.println(hours);
+		   
+		 
 		 //  int milliseconds = (int) (finalTime % 1000);
 		   
 		   time ="" + minutes + ":"
@@ -139,58 +139,11 @@ public class CountTimeService extends Service{
 
 
 		 
-//		 /**
-//		     * Put the notification into the status bar
-//		     * @param time2 
-//		 * @param project2 
-//		     */
-//		    public void createNotification(String time2, String project2,int id) {
-//		        //get the notification manager
-//		  
-//
-////		    	if (layout == null) {
-////		            layout = new RemoteViews(getPackageName(),
-////		                    R.layout.notification_control_bar);
-////		        } 
-//		      	pendingIntent = null;
-//			      intent = null;
-//		    	 intent = new Intent(ACTION_STOP);  
-//		    	 intent.putExtra("PROJECT",project);
-//		    	 
-//		    	    pendingIntent = PendingIntent.getService(getApplicationContext(),
-//		    	            0, intent,
-//		    	            PendingIntent.FLAG_UPDATE_CURRENT);
-//		    	
-//		          //  layout.setTextViewText(R.id.projectnamenoti, project);
-//		            
-//		           // layout.setOnClickPendingIntent(R.id.StopTimer,
-//		                 //   pendingIntent);
-//		            
-//		            Intent intent = new Intent(this,MainActivity.class);
-//		            PendingIntent pi= PendingIntent.getActivity(this, 0, intent, 0);
-//
-//		        //Create the notification instance.
-//		        mNotification = new NotificationCompat.Builder(this)
-//		                .setSmallIcon(R.drawable.ic_launcher)
-//		                .setWhen(System.currentTimeMillis())   
-//		                .setContentTitle(project2)
-//		                .setTicker("Starting Timer for :"+project2)
-//		                .setSubText(time2)
-//		                .setContentIntent(pi)
-//		                .addAction(R.drawable.ic_launcher, "Stop", pendingIntent)
-//		               
-//		                //.setContent(layout)
-//		                .build();
-//		        //Show the notification in the notification bar.
-//		        mNotifiManager.notify(id, mNotification);  
-//		        startForeground(id, mNotification);
-//		    }
+
 		    
 		    public void progressUpdate(String percentageComplete,int id,String project) {
 		    builder.setContentText(percentageComplete);
-		      //  mNotification.setLatestEventInfo(CountTimeService.this, project, percentageComplete,null);
-	          //  layout.setTextViewText(R.id.projectnamenoti, project);
-	           // layout.setTextViewText(R.id.timingnoti, percentageComplete);
+		     
 
 		        mNotifiManager.notify(id, builder.build());
 		    }

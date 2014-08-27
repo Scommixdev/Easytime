@@ -22,13 +22,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class EasyProjectAdapter extends BaseAdapter
+public class EasyProjectTaskAdapter extends BaseAdapter
 {
 	FragmentActivity activity;
 	
 	ArrayList<String> data;
 	
-	public EasyProjectAdapter(FragmentActivity activity, ArrayList<String> data) {
+	public EasyProjectTaskAdapter(FragmentActivity activity, ArrayList<String> data) {
 		// TODO Auto-generated constructor stub
 		this.activity=activity;
 		this.data=data;
@@ -65,6 +65,31 @@ public class EasyProjectAdapter extends BaseAdapter
 			convertView=inflater.inflate(R.layout.itemspinner, parent,false);
 			holder.iv=(ImageView)convertView.findViewById(R.id.iv);
 			holder.tv=(TextView)convertView.findViewById(R.id.tv);
+			holder.texttime=(TextView)convertView.findViewById(R.id.texttime);
+			
+			holder.stop=(Button)convertView.findViewById(R.id.stopit);
+			holder.stop.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if(isMyServiceRunning(CountTimeService.class)==true)
+					{
+						    Intent i=new Intent();
+					        i.setAction("com.svimtech.services.ACTION_STOP");
+					        i.putExtra("PROJECT", data.get(position));
+					        i.putExtra("ID", position);
+					        activity.startService(i);
+					}
+					else
+					{
+						Toast.makeText(activity, "Timer Already running", Toast.LENGTH_SHORT).show();
+					}
+				}
+			});
+			
+			
+			
 			holder.start=(Button)convertView.findViewById(R.id.start);
 			holder.start.setOnClickListener(new OnClickListener() {
 				
@@ -97,7 +122,7 @@ public class EasyProjectAdapter extends BaseAdapter
 		}
 		
 		holder.tv.setText(data.get(position));
-		
+		holder.texttime.setText("");
 		
 		
 		return convertView;
@@ -106,9 +131,9 @@ public class EasyProjectAdapter extends BaseAdapter
 	
 	
 	class ViewHolder{
-		TextView tv;
+		TextView tv,texttime;
 		ImageView iv;
-		Button start;
+		Button start,stop;
 	}
 	private boolean isMyServiceRunning(Class<?> serviceClass) {
 	    ActivityManager manager = (ActivityManager)activity.getSystemService(Context.ACTIVITY_SERVICE);

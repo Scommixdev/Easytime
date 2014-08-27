@@ -2,7 +2,7 @@ package com.svimtech.fragments;
 
 import java.util.ArrayList;
 
-import com.svimtech.adapter.EasyProjectAdapter;
+import com.svimtech.adapter.EasyProjectTaskAdapter;
 import com.svimtech.easytime.MainActivity;
 import com.svimtech.easytime.R;
 import com.svimtech.services.CountTimeService;
@@ -23,7 +23,7 @@ public class Easyproject extends Fragment {
 	
 	View rootView;
 	
-	EasyProjectAdapter adapter;
+	EasyProjectTaskAdapter adapter;
 	ArrayList<String> data;
 	ListView spinner;
 	
@@ -38,7 +38,7 @@ public class Easyproject extends Fragment {
 		data.add("Project 1");
 		data.add("Project 2");
 	
-		adapter=new EasyProjectAdapter(getActivity(), data);
+		adapter=new EasyProjectTaskAdapter(getActivity(), data);
 		spinner.setAdapter(adapter);
 	
 		spinner.setOnItemClickListener(new OnItemClickListener() {
