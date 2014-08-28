@@ -179,10 +179,7 @@ public class CountTimeService extends Service{
 			      intent = null;
 		    	 intent = new Intent(this,MainActivity.class);  
 		    	
-		    	 
-		    	    pendingIntent = PendingIntent.getService(getApplicationContext(),
-		    	            0, intent,
-		    	            PendingIntent.FLAG_UPDATE_CURRENT);
+		    	 pendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 		    	
 		 
 		        //Create Notification using NotificationCompat.Builder 

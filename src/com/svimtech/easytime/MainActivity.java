@@ -24,8 +24,9 @@ ActionBar.TabListener {
 	    private TabsPagerAdapter mAdapter;
 	    private ActionBar actionBar;
 	    // Tab titles
-	    private String[] tabs = { "Easy Projects", "Easy Project Tasks", "Easy Project Times","Easy Time Log" };
-	 
+	  //  private String[] tabs = { "Easy Projects", "Easy Project Tasks", "Easy Project Times","Easy Time Log" };
+	    private String[] tabs = {"Easy Project Tasks"};
+
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
