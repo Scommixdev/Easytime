@@ -200,9 +200,6 @@ public class CountTimeService extends Service{
 		                // Dismiss Notification
 		                .setAutoCancel(true);
 		 
-		        // Create Notification Manager
-		       // NotificationManager notificationmanager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-		        // Build Notification with Notification Manager
 		         mNotifiManager.notify(id2, builder.build());
 		         startForeground(id2, builder.build());
 		    }

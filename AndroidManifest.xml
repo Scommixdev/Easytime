@@ -16,6 +16,7 @@
         <activity
             android:name="com.svimtech.easytime.MainActivity"
             android:label="@string/app_name" >
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,6 +41,13 @@
         <activity 
             android:name="com.svimtech.easytime.TaskActivity"
             ></activity>
+        
+        <provider 
+            android:name="com.svimetch.database.EasyDatabase"
+            android:authorities="com.svimtech.database"
+            android:exported="false"
+            ></provider>
+        
     </application>
 
 </manifest>
