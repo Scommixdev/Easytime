@@ -32,13 +32,13 @@ import android.widget.Toast;
 
 public class CountTimeService extends Service{
 
-	private long startTime = 0L;
-	long timeInMillies = 0L;
+	 private long startTime = 0L;
+	 long timeInMillies = 0L;
 	 long timeSwap = 0L;
 	 long finalTime = 0L;
 
 	//	private RemoteViews layout;
-	 private Handler myHandler = new Handler();
+	private Handler myHandler = new Handler();
 	protected String time;
 	private final IBinder myBinder = new MyLocalBinder();
 	
@@ -78,8 +78,7 @@ public class CountTimeService extends Service{
         super.onCreate();
 	}
 	
-	
-	
+
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// TODO Auto-generated method stub
@@ -102,8 +101,7 @@ public class CountTimeService extends Service{
 		            }
 		           else if(action.equals(ACTION_STOP)) 
 		           {
-		        	
-				        position=intent.getIntExtra("ID", 0);
+		        	    position=intent.getIntExtra("ID", 0);
 				        delete=intent.getStringExtra("DELETE");
 		                stopPlay(id,delete,position);
 		            }
@@ -140,15 +138,15 @@ public class CountTimeService extends Service{
 		   int seconds = (int) (finalTime / 1000);
 		   int minutes = seconds / 60;
 		   seconds = seconds % 60;
-		   
+		   int hours=minutes/60;
 		 
 		 //  int milliseconds = (int) (finalTime % 1000);
 		   
-		   time ="" + minutes + ":"
+		   time =hours+":" + minutes + ":"
 				     + String.format("%02d", seconds);
 		   
 		  progressUpdate(time,id,project);
-		   System.out.println(time);
+		  System.out.println(time);
 		
 		   if(shouldrun==true)
 		   {

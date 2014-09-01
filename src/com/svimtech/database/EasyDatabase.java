@@ -1,4 +1,4 @@
-package com.svimetch.database;
+package com.svimtech.database;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -34,7 +34,7 @@ public class EasyDatabase extends ContentProvider{
 	
 	
 	
-	private static final String AUTHORITY = "com.svimetch.database.EasyDatabase";
+	private static final String AUTHORITY = "com.svimtech.database";
 	
 	public static final String DATABASE_NAME="easydatabase.db";
 	
