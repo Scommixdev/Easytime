@@ -1,6 +1,7 @@
 package com.svimtech.easytime;
 
 
+import com.svimtech.Webservices.LoginTask;
 import com.svimtech.database.EasyDatabase;
 
 import android.content.ContentValues;
@@ -47,18 +48,9 @@ public class LoginActivity extends ActionBarActivity{
 				// TODO Auto-generated method stub
 				String emailtext=email.getText().toString();
 				String passvalue=password.getText().toString();
-				System.out.println(emailtext +"and "+passvalue);
-
-				ContentValues cv=new ContentValues();
-				cv.put(EasyDatabase.USERID, "1");
-				cv.put(EasyDatabase.USERNAME, emailtext);
-				cv.put(EasyDatabase.COMPANY, "DEMO");
-				cv.put(EasyDatabase.EMAIL, emailtext);
-				cv.put(EasyDatabase.PASSWORD, passvalue);
-				getContentResolver().insert(EasyDatabase.CONTENT_URI_UserInfo, cv);
-
-				Intent toactivity=new Intent(LoginActivity.this,MainActivity.class);
-				startActivity(toactivity);
+				
+				new LoginTask(LoginActivity.this,emailtext,passvalue).execute();
+			
 			}
 		});
 		
