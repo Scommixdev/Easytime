@@ -1,8 +1,10 @@
 package com.svimtech.easytime;
 
+
 import com.svimtech.database.EasyDatabase;
 
 import android.content.ContentValues;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -31,8 +33,10 @@ public class LoginActivity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+
 				Intent toactivity=new Intent(LoginActivity.this,RegisterActivity.class);
 				startActivity(toactivity);
+
 			}
 		});
 		
@@ -44,6 +48,7 @@ public class LoginActivity extends ActionBarActivity{
 				String emailtext=email.getText().toString();
 				String passvalue=password.getText().toString();
 				System.out.println(emailtext +"and "+passvalue);
+
 				ContentValues cv=new ContentValues();
 				cv.put(EasyDatabase.USERID, "1");
 				cv.put(EasyDatabase.USERNAME, emailtext);
@@ -51,6 +56,7 @@ public class LoginActivity extends ActionBarActivity{
 				cv.put(EasyDatabase.EMAIL, emailtext);
 				cv.put(EasyDatabase.PASSWORD, passvalue);
 				getContentResolver().insert(EasyDatabase.CONTENT_URI_UserInfo, cv);
+
 				Intent toactivity=new Intent(LoginActivity.this,MainActivity.class);
 				startActivity(toactivity);
 			}
