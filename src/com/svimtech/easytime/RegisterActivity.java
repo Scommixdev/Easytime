@@ -54,36 +54,53 @@ public class RegisterActivity extends ActionBarActivity{
 				String id=spinnerList.get(spinner.getSelectedItemPosition()).getId();
 				if(r_uname.equals(""))
 				{
-					Toast t=new Toast(RegisterActivity.this);
-					t.setDuration(Toast.LENGTH_SHORT);
-					t.setGravity(Gravity.CENTER|Gravity.TOP, 0, 0);
-					t.setText("Username cannot be blank!");
-					t.show();
+					  Toast toast = Toast.makeText(RegisterActivity.this, "No Username Found", Toast.LENGTH_SHORT);
+					    toast.setText("No Username Found");
+					    toast.setGravity(Gravity.CENTER, 0, 0);
+					    //other setters
+					    toast.show();
+				}
+				else{
+					if(r_password.equals(confirm_pass.getText().toString()))
+					{
+						task=new RegisterTask(RegisterActivity.this,r_uname,r_password,r_email,id);
+						task.execute();
+					}
+					else{
+						  Toast toast = Toast.makeText(RegisterActivity.this, "Check Passwords!", Toast.LENGTH_SHORT);
+						    toast.setText("Check Passwords!");
+						    toast.setGravity(Gravity.CENTER, 0, 0);
+						    //other setters
+						    toast.show();
+					}
 				}
 				
-				if(r_password.equals(""))
-				{
-					Toast t=new Toast(RegisterActivity.this);
-					t.setDuration(Toast.LENGTH_SHORT);
-					t.setGravity(Gravity.CENTER|Gravity.TOP, 0, 0);
-					t.setText("password cannot be blank!");
-					t.show();
-				}
+			
 				
 				if(r_email.equals(""))
 				{
-					Toast t=new Toast(RegisterActivity.this);
-					t.setDuration(Toast.LENGTH_SHORT);
-					t.setGravity(Gravity.CENTER|Gravity.TOP, 0, 0);
-					t.setText("email cannot be blank!");
-					t.show();
+					  Toast toast = Toast.makeText(RegisterActivity.this, "No email found", Toast.LENGTH_SHORT);
+					    toast.setText("No email found");
+					    toast.setGravity(Gravity.CENTER, 0, 0);
+					    //other setters
+					    toast.show();
 				}
-				
-			if(r_password.equals(confirm_pass.getText().toString()))
-			{
-				task=new RegisterTask(RegisterActivity.this,r_uname,r_password,r_email,id);
-				task.execute();
-			}
+				else{
+					if(r_password.equals(confirm_pass.getText().toString()))
+					{
+						task=new RegisterTask(RegisterActivity.this,r_uname,r_password,r_email,id);
+						task.execute();
+					}
+					else{
+						  Toast toast = Toast.makeText(RegisterActivity.this, "Check Passwords!", Toast.LENGTH_SHORT);
+						    toast.setText("Check Passwords!");
+						    toast.setGravity(Gravity.CENTER, 0, 0);
+						    //other setters
+						    toast.show();
+					}
+				}
+			
+			
 				
 				
 				
