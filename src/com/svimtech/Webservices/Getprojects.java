@@ -26,6 +26,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 public class Getprojects extends AsyncTask<Void, Void, Void> {
 
@@ -33,11 +34,11 @@ public class Getprojects extends AsyncTask<Void, Void, Void> {
 
 	FragmentActivity fragmentActivity;
 	 EasyProjectAdapter adapter; 
-	 ListView projectlistview;
+	 Spinner projectlistview;
 	ArrayList<ProjectTimeModal> data; 
 	 ProgressDialog dialog;
 	public Getprojects(FragmentActivity fragmentActivity,
-			ArrayList<ProjectTimeModal> data, EasyProjectAdapter adapter, ListView projectlistview) {
+			ArrayList<ProjectTimeModal> data, EasyProjectAdapter adapter, Spinner projectlistview) {
 		// TODO Auto-generated constructor stub
 		this.fragmentActivity=fragmentActivity;
 		this.data=data;

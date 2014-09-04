@@ -1,6 +1,6 @@
 package com.svimtech.services;
 
-import com.svimtech.easytime.MainActivity;
+import com.svimtech.easytime.ProjectTasks;
 import com.svimtech.easytime.R;
 
 
@@ -175,7 +175,7 @@ public class CountTimeService extends Service{
 		 
 		    	pendingIntent = null;
 			      intent = null;
-		    	 intent = new Intent(this,MainActivity.class);  
+		    	 intent = new Intent(this,ProjectTasks.class);  
 		    	
 		    	 pendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 		    	

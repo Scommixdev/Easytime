@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import com.svimtech.database.EasyTimepref;
 import com.svimtech.easytime.LoginActivity;
-import com.svimtech.easytime.MainActivity;
+import com.svimtech.easytime.ProjectTasks;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -41,7 +41,6 @@ public class LoginTask extends AsyncTask<Void, Void, Void> {
 		// TODO Auto-generated constructor stub
 		this.loginActivity=loginActivity;
 		this.emailtext=emailtext;
-		
 		this.passvalue=passvalue;
 	}
 
@@ -138,7 +137,7 @@ public class LoginTask extends AsyncTask<Void, Void, Void> {
 					pref.setEMAILID(emailtext);
 					pref.setUSERNAME(usr);
 					pref.setisRegistered(true);
-					Intent toactivity=new Intent(loginActivity,MainActivity.class);
+					Intent toactivity=new Intent(loginActivity,ProjectTasks.class);
 					loginActivity.startActivity(toactivity);
 					loginActivity.finish();
 				}

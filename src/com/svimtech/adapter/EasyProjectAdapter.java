@@ -63,7 +63,14 @@ public class EasyProjectAdapter extends BaseAdapter{
 			holder=(ViewHolder)convertView.getTag();
 		}
 		
-		holder.tv.setText(data.get(position).getName());
+		if(position==0)
+		{
+			holder.tv.setText(data.get(position).getName());
+		}
+		else{
+			holder.tv.setText(position+": "+data.get(position).getName());
+		}
+		
 		
 		
 		

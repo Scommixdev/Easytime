@@ -2,40 +2,79 @@ package com.svimtech.modal;
 
 public class TaskItem {
 	
-	String TaskName;
-	String Project;
-	String StartDate;
-	String EndDate;
-	String TaskStatus;
-	public String getTaskName() {
-		return TaskName;
+	String taskid, accountid, startdate, name, enddate, description, taskstatus, 
+    projectid, companyid;
+
+	public String getTaskid() {
+		return taskid;
 	}
-	public void setTaskName(String taskName) {
-		TaskName = taskName;
+
+	public void setTaskid(String taskid) {
+		this.taskid = taskid;
 	}
-	public String getProject() {
-		return Project;
+
+	public String getAccountid() {
+		return accountid;
 	}
-	public void setProject(String project) {
-		Project = project;
+
+	public void setAccountid(String accountid) {
+		this.accountid = accountid;
 	}
-	public String getStartDate() {
-		return StartDate;
+
+	public String getStartdate() {
+		return startdate;
 	}
-	public void setStartDate(String startDate) {
-		StartDate = startDate;
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
 	}
-	public String getEndDate() {
-		return EndDate;
+
+	public String getName() {
+		return name;
 	}
-	public void setEndDate(String endDate) {
-		EndDate = endDate;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getTaskStatus() {
-		return TaskStatus;
+
+	public String getEnddate() {
+		return enddate;
 	}
-	public void setTaskStatus(String taskStatus) {
-		TaskStatus = taskStatus;
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getTaskstatus() {
+		return taskstatus;
+	}
+
+	public void setTaskstatus(String taskstatus) {
+		this.taskstatus = taskstatus;
+	}
+
+	public String getProjectid() {
+		return projectid;
+	}
+
+	public void setProjectid(String projectid) {
+		this.projectid = projectid;
+	}
+
+	public String getCompanyid() {
+		return companyid;
+	}
+
+	public void setCompanyid(String companyid) {
+		this.companyid = companyid;
 	}
 	
 	

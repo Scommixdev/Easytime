@@ -9,19 +9,6 @@
   		android:layout_height="wrap_content" android:background="#fff">
   		
   		<!--  Header  Starts-->
-  		<LinearLayout android:id="@+id/header"
-  				android:layout_width="fill_parent"
-  				android:layout_height="wrap_content"
-  				android:background="@layout/header_gradient"
-  				android:paddingTop="5dip"
-  				android:paddingBottom="5dip">
-  				<!-- Logo Start-->
-  				<ImageView android:src="@drawable/ic_launcher"
-  							android:layout_width="wrap_content"
-  							android:layout_height="wrap_content"
-  							android:layout_marginLeft="10dip"/>
-  				<!-- Logo Ends -->
-  		</LinearLayout>
   		<!--  Header Ends --> 
   		<!-- Footer Start -->
   		<LinearLayout android:id="@+id/footer"
@@ -34,13 +21,13 @@
   		<!-- Footer Ends --> 
   		
   		<!-- Registration Form -->
+
 		<LinearLayout
-		
-		  android:orientation="vertical"
-		  android:layout_width="match_parent"
-		  android:layout_height="wrap_content"
-		  android:padding="10dip"
-		  android:layout_below="@id/header">
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:padding="10dip" >
+
 		  <!-- Full Name Label -->
 		  
 		  <Spinner android:id="@+id/spinnerCompany"
@@ -48,8 +35,7 @@
 		    android:layout_height="wrap_content"
 		    android:layout_marginLeft="10dp"
 		    android:layout_marginRight="10dp"
-		    android:spinnerMode="dropdown"
-		     />
+		    />
 		  
 		  
 		  <TextView android:layout_width="fill_parent"

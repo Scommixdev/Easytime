@@ -28,7 +28,7 @@ public class LoginActivity extends ActionBarActivity{
 		
 		if(EasyTimepref.getisRegistered()==true)
 		{
-			Intent toactivity=new Intent(LoginActivity.this,MainActivity.class);
+			Intent toactivity=new Intent(LoginActivity.this,Projects.class);
 			startActivity(toactivity);
 			finish();
 		}
