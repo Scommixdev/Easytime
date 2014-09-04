@@ -3,6 +3,7 @@ package com.svimtech.adapter;
 import java.util.ArrayList;
 
 import com.svimtech.easytime.R;
+import com.svimtech.fragments.EasyProject;
 import com.svimtech.modal.ProjectTimeModal;
 import com.svimtech.modal.TaskItem;
 
@@ -15,13 +16,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class EasyProjectTimeAdapter extends BaseAdapter{
+public class EasyProjectAdapter extends BaseAdapter{
 
-	FragmentActivity activity; ArrayList<ProjectTimeModal> data;
+	FragmentActivity fragmentActivity; ArrayList<ProjectTimeModal> data;
 	
-	public EasyProjectTimeAdapter(FragmentActivity activity, ArrayList<ProjectTimeModal> data2) {
+	public EasyProjectAdapter(FragmentActivity fragmentActivity, ArrayList<ProjectTimeModal> data2) {
 		// TODO Auto-generated constructor stub
-		this.activity=activity;
+		this.fragmentActivity=fragmentActivity;
 		this.data=data2;
 	}
 
@@ -50,11 +51,11 @@ public class EasyProjectTimeAdapter extends BaseAdapter{
 		
 		if(convertView==null)
 		{
-			LayoutInflater inflater=(LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater inflater=(LayoutInflater)fragmentActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			holder=new ViewHolder();
-			convertView=inflater.inflate(R.layout.itemspinner, parent,false);
-			holder.iv=(ImageView)convertView.findViewById(R.id.iv);
-			holder.tv=(TextView)convertView.findViewById(R.id.tv);
+			convertView=inflater.inflate(R.layout.item_spinner_company, parent,false);
+		
+			holder.tv=(TextView)convertView.findViewById(R.id.cname);
 			convertView.setTag(holder);
 		}
 		else
@@ -62,7 +63,7 @@ public class EasyProjectTimeAdapter extends BaseAdapter{
 			holder=(ViewHolder)convertView.getTag();
 		}
 		
-		holder.tv.setText(data.get(position).getProjecttask());
+		holder.tv.setText(data.get(position).getName());
 		
 		
 		
@@ -70,7 +71,7 @@ public class EasyProjectTimeAdapter extends BaseAdapter{
 	}
 	class ViewHolder{
 		TextView tv;
-		ImageView iv;
+		
 	}
 
 }

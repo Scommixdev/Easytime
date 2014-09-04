@@ -138,11 +138,11 @@ public class CountTimeService extends Service{
 		   int seconds = (int) (finalTime / 1000);
 		   int minutes = seconds / 60;
 		   seconds = seconds % 60;
-		   int hours=minutes/60;
+		 
 		 
 		 //  int milliseconds = (int) (finalTime % 1000);
 		   
-		   time =hours+":" + minutes + ":"
+		   time =minutes + ":"
 				     + String.format("%02d", seconds);
 		   
 		  progressUpdate(time,id,project);

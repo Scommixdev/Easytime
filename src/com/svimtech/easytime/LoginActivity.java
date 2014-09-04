@@ -3,6 +3,7 @@ package com.svimtech.easytime;
 
 import com.svimtech.Webservices.LoginTask;
 import com.svimtech.database.EasyDatabase;
+import com.svimtech.database.EasyTimepref;
 
 import android.content.ContentValues;
 
@@ -24,6 +25,13 @@ public class LoginActivity extends ActionBarActivity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
+		
+		if(EasyTimepref.getisRegistered()==true)
+		{
+			Intent toactivity=new Intent(LoginActivity.this,MainActivity.class);
+			startActivity(toactivity);
+			finish();
+		}
 		btnLogin=(Button)findViewById(R.id.btnLogin);
 		email=(EditText)findViewById(R.id.email);
 		password=(EditText)findViewById(R.id.password);

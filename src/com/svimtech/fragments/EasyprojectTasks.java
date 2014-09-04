@@ -31,8 +31,8 @@ public class EasyprojectTasks extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		rootView=inflater.inflate(R.layout.easyprojects, container,false);
-		spinner=(ListView)rootView.findViewById(R.id.projectitems);
+		rootView=inflater.inflate(R.layout.easyprojectask, container,false);
+		spinner=(ListView)rootView.findViewById(R.id.taskitems);
 		data=new ArrayList<String>();
 		
 		data.add("Task 1");

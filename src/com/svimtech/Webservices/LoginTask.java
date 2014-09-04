@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.svimtech.database.EasyTimepref;
 import com.svimtech.easytime.LoginActivity;
 import com.svimtech.easytime.MainActivity;
 
@@ -34,6 +35,7 @@ public class LoginTask extends AsyncTask<Void, Void, Void> {
 	private String usr;
 	private ProgressDialog dialog;
 	private int value;
+	private String companyid;
 	
 	public LoginTask(LoginActivity loginActivity, String emailtext, String passvalue) {
 		// TODO Auto-generated constructor stub
@@ -49,7 +51,7 @@ public class LoginTask extends AsyncTask<Void, Void, Void> {
 		value=1;
 		usr="sgbngfnafsdnkjlsdfbvldfblbvsdfjklbjk";
 		dialog=new ProgressDialog(loginActivity);
-		dialog.setMessage("Registering...");
+		dialog.setMessage("Signing in...");
 		dialog.setCancelable(false);
 		dialog.show();
 		// TODO Auto-generated method stub
@@ -97,6 +99,7 @@ public class LoginTask extends AsyncTask<Void, Void, Void> {
 						JSONObject obj=arr.getJSONObject(i);
 						usr=obj.getString("username");
 						passwd=obj.getString("password");
+						companyid=obj.getString("companyid");
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -130,13 +133,19 @@ public class LoginTask extends AsyncTask<Void, Void, Void> {
 			{
 				if(passwd.equals(passvalue))
 				{
+					EasyTimepref pref =EasyTimepref.getInstance(loginActivity.getApplicationContext());
+					pref.setCompanyid(companyid);
+					pref.setEMAILID(emailtext);
+					pref.setUSERNAME(usr);
+					pref.setisRegistered(true);
 					Intent toactivity=new Intent(loginActivity,MainActivity.class);
 					loginActivity.startActivity(toactivity);
 					loginActivity.finish();
 				}
 			}
-			else{
-				Toast.makeText(loginActivity, "Wrong", 1000).show();
+			else
+			{
+				Toast.makeText(loginActivity, "Wrong", Toast.LENGTH_SHORT).show();
 			}
 			
 			dialog.dismiss();

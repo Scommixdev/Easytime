@@ -2,55 +2,67 @@ package com.svimtech.modal;
 
 public class ProjectTimeModal {
 	
-	String easyprojecttimename;
-	String projecttask;
-	String timestarted;
-	String timeended;
-	String workdate;
-	String workhours;
-	String user;
-	public String getEasyprojecttimename() {
-		return easyprojecttimename;
+
+	
+	String  id,startdate,name,enddate,projectstatus,projectid,companyid;
+
+	public String getId() {
+		return id;
 	}
-	public void setEasyprojecttimename(String easyprojecttimename) {
-		this.easyprojecttimename = easyprojecttimename;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getProjecttask() {
-		return projecttask;
+
+	public String getStartdate() {
+		return startdate;
 	}
-	public void setProjecttask(String projecttask) {
-		this.projecttask = projecttask;
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
 	}
-	public String getTimestarted() {
-		return timestarted;
+
+	public String getName() {
+		return name;
 	}
-	public void setTimestarted(String timestarted) {
-		this.timestarted = timestarted;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getTimeended() {
-		return timeended;
+
+	public String getEnddate() {
+		return enddate;
 	}
-	public void setTimeended(String timeended) {
-		this.timeended = timeended;
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
 	}
-	public String getWorkdate() {
-		return workdate;
+
+	public String getProjectstatus() {
+		return projectstatus;
 	}
-	public void setWorkdate(String workdate) {
-		this.workdate = workdate;
+
+	public void setProjectstatus(String projectstatus) {
+		this.projectstatus = projectstatus;
 	}
-	public String getWorkhours() {
-		return workhours;
+
+	public String getProjectid() {
+		return projectid;
 	}
-	public void setWorkhours(String workhours) {
-		this.workhours = workhours;
+
+	public void setProjectid(String projectid) {
+		this.projectid = projectid;
 	}
-	public String getUser() {
-		return user;
+
+	public String getCompanyid() {
+		return companyid;
 	}
-	public void setUser(String user) {
-		this.user = user;
+
+	public void setCompanyid(String companyid) {
+		this.companyid = companyid;
 	}
+
+	
 	
 	
 
